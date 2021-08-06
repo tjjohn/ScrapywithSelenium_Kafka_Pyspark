@@ -2,7 +2,7 @@ import scrapy
 from scrapy.selector import Selector
 from selenium import webdriver  
 from shutil import which
-from selenium.webdriver.chrome.options  import Options #to convert browser into headless...beacuse we want to give user data..no design
+from selenium.webdriver.chrome.options  import Options 
 import json
 
 
@@ -14,10 +14,10 @@ class CoinSpider(scrapy.Spider):
 
     def parse(self, response):
         chrm_option=Options()
-        chrm_option.add_argument('--headless')  # used fto get the driver page in background
+        chrm_option.add_argument('--headless') 
 
         chromepath=which("chromedriver")
-        driver = webdriver.Chrome(executable_path=chromepath,options=chrm_option)  #driver to get scrrenshot of  website
+        driver = webdriver.Chrome(executable_path=chromepath,options=chrm_option)  
 
         #navigate to the url  
         driver.get("https://web.archive.org/web/20200116052415/https://www.livecoin.net/en/") 
